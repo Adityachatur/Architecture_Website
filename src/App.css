@@ -1,38 +1,38 @@
-.App {
-  text-align: center;
+/* WebKit Browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 5px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+::-webkit-scrollbar-track {
+  background: var(--scroll-track-color, #000);
+  /* Use CSS variable for track color */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+::-webkit-scrollbar-thumb {
+  background: #888;
+  /* Thumb color */
+  border-radius: 5px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  /* Thumb color on hover */
 }
 
-.App-link {
-  color: #61dafb;
+* {
+  scroll-behavior: smooth;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Firefox */
+body {
+  scrollbar-width: thin;
+  scrollbar-color: #888 var(--scroll-track-color, #000);
+  /* Use CSS variable for track color */
+}
+
+/* Navbar fixed top position bg effect */
+.navbar-bg-blur {
+  background-color: rgba(0, 0, 0, 0.755);
+  backdrop-filter: blur(50px);
+  transition: background-color 2s ease-in-out, backdrop-filter 1s ease;
 }
