@@ -11,6 +11,7 @@ import img9 from "../Images/Gallery9.webp";
 import rightarrow from "../Images/rightarrow.svg";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Link } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,77 +20,80 @@ const ProjectsCategory = () => {
   const [visibleCount, setVisibleCount] = useState(5); // Number of initially visible projects
   const [showAll, setShowAll] = useState(false); // Track if all projects are visible
 
-  const projects = {
-    architecture: [
-      {
-        id: 1,
-        category: "architecture",
-        title: "Architecture",
-        image: img1,
-        hoverTitle: "Modern Architecture",
-      },
-      {
-        id: 2,
-        category: "architecture",
-        title: "Architecture",
-        image: img2,
-        hoverTitle: "Modern Architecture",
-      },
-      {
-        id: 3,
-        category: "architecture",
-        title: "Architecture",
-        image: img3,
-        hoverTitle: "Confidential Technology",
-      },
-    ],
-    interior: [
-      {
-        id: 5,
-        category: "interior",
-        title: "Interior",
-        image: img4,
-        hoverTitle: "Modern Architecture",
-      },
-      {
-        id: 6,
-        category: "interior",
-        title: "Interior",
-        image: img5,
-        hoverTitle: "Confidential Technology",
-      },
-      {
-        id: 7,
-        category: "interior",
-        title: "Interior",
-        image: img6,
-        hoverTitle: "Confidential Technology",
-      },
-    ],
-    sustainable: [
-      {
-        id: 9,
-        category: "sustainable",
-        title: "Sustainable",
-        image: img7,
-        hoverTitle: "Modern Architecture",
-      },
-      {
-        id: 10,
-        category: "sustainable",
-        title: "Sustainable",
-        image: img8,
-        hoverTitle: "Confidential Technology",
-      },
-      {
-        id: 11,
-        category: "sustainable",
-        title: "Sustainable",
-        image: img9,
-        hoverTitle: "Confidential Technology",
-      },
-    ],
-  };
+  const projects = useMemo(
+    () => ({
+      architecture: [
+        {
+          id: 1,
+          category: "architecture",
+          title: "Architecture",
+          image: img1,
+          hoverTitle: "Modern Architecture",
+        },
+        {
+          id: 2,
+          category: "architecture",
+          title: "Architecture",
+          image: img2,
+          hoverTitle: "Modern Architecture",
+        },
+        {
+          id: 3,
+          category: "architecture",
+          title: "Architecture",
+          image: img3,
+          hoverTitle: "Confidential Technology",
+        },
+      ],
+      interior: [
+        {
+          id: 5,
+          category: "interior",
+          title: "Interior",
+          image: img4,
+          hoverTitle: "Modern Architecture",
+        },
+        {
+          id: 6,
+          category: "interior",
+          title: "Interior",
+          image: img5,
+          hoverTitle: "Confidential Technology",
+        },
+        {
+          id: 7,
+          category: "interior",
+          title: "Interior",
+          image: img6,
+          hoverTitle: "Confidential Technology",
+        },
+      ],
+      sustainable: [
+        {
+          id: 9,
+          category: "sustainable",
+          title: "Sustainable",
+          image: img7,
+          hoverTitle: "Modern Architecture",
+        },
+        {
+          id: 10,
+          category: "sustainable",
+          title: "Sustainable",
+          image: img8,
+          hoverTitle: "Confidential Technology",
+        },
+        {
+          id: 11,
+          category: "sustainable",
+          title: "Sustainable",
+          image: img9,
+          hoverTitle: "Confidential Technology",
+        },
+      ],
+    }),
+    []
+  );
 
   const allProjects = useMemo(
     () => [
@@ -136,14 +140,14 @@ const ProjectsCategory = () => {
     <div className="w-full border-2 border-red-500">
       <div className="lg:w-10/12 w-11/12 mx-auto flex flex-col">
         <div className="text-center">
-          <p className="text-2xl font-semibold text-gray-400 lg:w-6/12 md:w-8/12 w-11/12 mx-auto h-[200px] flex items-center justify-center">
+          <p className="lg:text-2xl text-xl font-semibold text-gray-400 lg:w-6/12 md:w-8/12 w-11/12 mx-auto h-[200px] flex items-center justify-center">
             Our Projects harness design and technology to create places where
             people live, work, and heal.
           </p>
         </div>
 
         <div className="w-full border-y-[5px] border-gray-400 h-auto my-10 relative">
-          <div className="absolute w-6/12 h-[100px] bg-white top-[-50px] left-1/2 transform -translate-x-1/2 flex items-center justify-center space-x-6 text-xl font-semibold uppercase">
+          <div className="absolute lg:w-8/12 w-5/12 h-auto lg:h-[100px] mx-auto bg-white top-[-50px] left-1/2 transform -translate-x-1/2 flex lg:flex-row flex-col justify-center items-center text-center gap-5 lg:text-xl text-[12px] font-semibold uppercase">
             <h1
               className={`cursor-pointer ${
                 selectedCategory === "all"
@@ -185,7 +189,7 @@ const ProjectsCategory = () => {
               sustainable
             </h1>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:pt-20 md:pt-[20%] pt-[40%]">
             {(selectedCategory === "all"
               ? allProjects.slice(0, visibleCount)
               : projects[selectedCategory].slice(0, visibleCount)
@@ -207,20 +211,23 @@ const ProjectsCategory = () => {
                       <h1 className="lg:text-2xl text-xl font-semibold flex justify-start items-center">
                         Start a Project{" "}
                         <span>
-                          <button>
-                            <img
-                              src={rightarrow}
-                              alt=""
-                              className="p-2 bg-white ml-2 hover:translate-x-4 duration-200"
-                            />
-                          </button>
+                          <Link to={"/contact"}>
+                            {" "}
+                            <button>
+                              <img
+                                src={rightarrow}
+                                alt=""
+                                className="p-2 bg-white ml-2 hover:translate-x-4 duration-200"
+                              />
+                            </button>
+                          </Link>
                         </span>
                       </h1>
                     </div>
                   </h2>
                 </div>
                 <div className="absolute bottom-0 left-10 w-10 h-52 bg-customYellow flex items-center justify-center group-hover:bg-white duration-500">
-                  <span className="transform rotate-90 text-2xl font-bold">
+                  <span className="transform rotate-90 lg:text-2xl text-xl font-bold">
                     {project.title}
                   </span>
                 </div>

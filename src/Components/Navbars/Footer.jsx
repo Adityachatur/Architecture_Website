@@ -24,7 +24,7 @@ const Footer = () => {
       <div className="absolute inset-0 bg-black opacity-40"></div>
       <div className="relative flex lg:flex-row flex-col justify-center items-center gap-6 z-9 w-11/12 mx-auto h-auto">
         <div className="lg:w-7/12 w-full space-y-6 lg:h-[600px] h-auto flex flex-col justify-evenly">
-          <div className="w-full uppercase grid lg:grid-cols-5 md:grid-cols-5 grid-cols-1 lg:space-x-6 py-6 border-b-[5px] border-gray-500 border-opacity-40 text-white lg:text-[1vw] text-[0.9rem] font-bold border-2">
+          <div className="w-full uppercase grid lg:grid-cols-5 md:grid-cols-5 grid-cols-1 lg:space-x-6 lg:space-y-0 md:space-y-0 space-y-10 py-5 border-b-[5px] border-gray-500 border-opacity-40 text-white lg:text-[1vw] text-[0.9rem] font-bold ">
             <Link to="/about" className={getLinkClasses("/about")}>
               About
             </Link>
@@ -41,7 +41,7 @@ const Footer = () => {
               Home
             </Link>
           </div>
-          <div className="grid w-full border-2 py-10 lg:h-[220px] h-auto lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-6">
+          <div className="grid w-full  py-10 lg:h-[220px] h-auto lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-6">
             <div className="flex flex-col justify-evenly lg:w-8/12 w-6/12">
               <h1 className="text-white text-xl font-bold border-b-[5px] border-gray-500 border-opacity-40 pb-3">
                 Wills Point

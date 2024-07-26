@@ -43,7 +43,8 @@ const TextareaField = React.memo(({ label, name, placeholder, required }) => {
 
 const Form = () => {
   const formRef = useRef(null);
-  const headingref = useRef(null);
+  const headingRef = useRef(null);
+
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from(formRef.current, {
@@ -68,17 +69,17 @@ const Form = () => {
           toggleActions: "play none none reset",
         },
       });
-    });
-    gsap.from(headingref.current, {
-      opacity: 0,
-      y: 50,
-      duration: 1.5,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: headingref.current,
-        start: "top 80%",
-        toggleActions: "play none none reset",
-      },
+      gsap.from(headingRef.current, {
+        opacity: 0,
+        y: 50,
+        duration: 1.5,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: headingRef.current,
+          start: "top 80%",
+          toggleActions: "play none none reset",
+        },
+      });
     });
 
     return () => ctx.revert();
@@ -88,7 +89,7 @@ const Form = () => {
     <div className="w-full flex lg:flex-row flex-col">
       <div
         className="lg:w-4/12 w-full flex flex-col space-y-6 my-5 lg:p-6 py-6"
-        ref={headingref}
+        ref={headingRef}
       >
         <h1 className="text-[3vw] uppercase font-bold leading-tight">
           WE’D LOVE TO TALK
@@ -160,7 +161,7 @@ const Form = () => {
           <div className="py-5">
             <button
               type="submit"
-              className=" button bg-customYellow text-black py-4 px-10 text-2xl font-semibold transition-all duration-300 ease-in-out hover:translate-x-3"
+              className="button bg-customYellow text-black py-4 px-10 text-2xl font-semibold transition-all duration-300 ease-in-out hover:translate-x-3"
             >
               Send Now
             </button>

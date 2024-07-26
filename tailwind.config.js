@@ -10,8 +10,10 @@ module.exports = {
         background: '#F2F2F2',
         customgreen: "#BCFF00",
       },
+      fontFamily: {
+        sora: ['Sora', 'sans-serif'],
+      },
     },
   },
   plugins: [],
 }
-

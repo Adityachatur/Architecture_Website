@@ -1,9 +1,10 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { TextPlugin } from "gsap/TextPlugin";
 import img from "../Images/2.jpg";
 import video from "../Images/video.svg";
+import architectureVideo from "../Images/video.mp4"; // Add your video path here
 
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
@@ -11,6 +12,7 @@ const About = () => {
   const numberRef = useRef(null);
   const imganiref = useRef(null);
   const textRefs = useRef([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     // Create a GSAP context
@@ -62,9 +64,13 @@ const About = () => {
     return () => ctx.revert();
   }, []);
 
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
   return (
     <>
-      <div className="lg:h-screen h-auto w-full flex flex-col justify-center">
+      <div className="lg:h-screen h-auto w-full flex flex-col justify-center font-sora">
         <div className="flex lg:flex-row flex-col justify-center h-full w-full mx-auto items-center py-10">
           <div
             ref={imganiref}
@@ -106,6 +112,7 @@ const About = () => {
             <p
               ref={(el) => (textRefs.current[3] = el)}
               className="text-xl font-bold uppercase flex items-center cursor-pointer "
+              onClick={toggleModal}
             >
               Watch Video{" "}
               <img
@@ -117,6 +124,19 @@ const About = () => {
           </div>
         </div>
       </div>
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50">
+          <div className="relative  w-11/12 lg:w-8/12 p-6">
+            <button
+              className="absolute top-0 right-[-5px] text-black text-5xl font-bold"
+              onClick={toggleModal}
+            >
+              &times;
+            </button>
+            <video src={architectureVideo} controls className="w-full h-auto" />
+          </div>
+        </div>
+      )}
     </>
   );
 };

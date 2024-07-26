@@ -35,10 +35,10 @@ const Navbar = () => {
           scrolled ? "navbar-bg-blur" : "bg-transparent"
         } text-white`}
       >
-        <div className="company-name lg:text-3xl text-2xl font-bold uppercase">
+        <div className="company-name lg:text-3xl text-2xl font-semibold uppercase font-sora">
           Ruizarch
         </div>
-        <div className="hidden lg:flex items-center lg:space-x-14 space-x-4 lg:text-[1vw] font-bold uppercase">
+        <div className="hidden lg:flex items-center lg:space-x-14 space-x-4 lg:text-[0.5vw] font-semibold uppercase font-sora ">
           <Link to="/" onClick={toggleMenu} className={isActive("/")}>
             Home
           </Link>
@@ -67,9 +67,11 @@ const Navbar = () => {
             Contact Us
           </Link>
         </div>
-        <button className="hidden lg:block py-2 sm:py-5 px-4 sm:px-5 text-lg sm:text-xl bg-customYellow text-black font-semibold uppercase">
-          Start a Project
-        </button>
+        <Link to={"/contact"}>
+          <button className="hidden lg:block py-2 sm:py-5 px-4 sm:px-5 text-lg sm:text-xl bg-customYellow text-black font-semibold uppercase font-sora">
+            Start a Project
+          </button>
+        </Link>
         <div className="lg:hidden flex items-center">
           <button onClick={toggleMenu} className="text-3xl">
             {menuOpen ? "✖" : "☰"}
@@ -90,7 +92,7 @@ const Navbar = () => {
             ✖
           </button>
         </div>
-        <div className="flex flex-col items-center space-y-6 text-lg font-bold uppercase mt-2">
+        <div className="flex flex-col items-center space-y-6 text-lg font-semibold uppercase mt-2 font-sora">
           <Link to="/" onClick={toggleMenu} className={isActive("/")}>
             Home
           </Link>
@@ -118,12 +120,14 @@ const Navbar = () => {
           >
             Contact Us
           </Link>
-          <button
-            onClick={toggleMenu}
-            className="py-2 px-4 text-lg bg-customYellow text-black font-semibold uppercase"
-          >
-            Start a Project
-          </button>
+          <Link to={"/contact"}>
+            <button
+              onClick={toggleMenu}
+              className="py-2 px-4 text-lg bg-customYellow text-black font-semibold uppercase"
+            >
+              Start a Project
+            </button>
+          </Link>
         </div>
       </div>
     </>

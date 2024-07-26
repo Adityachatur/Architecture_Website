@@ -54,7 +54,7 @@ const Testimonial = () => {
             think of us
           </h1>
         </div>
-        <div className="lg:w-7/12 w-full lg:h-[550px] h-auto  uppercase flex flex-col justify-end space-y-6">
+        <div className="lg:w-7/12 w-full lg:h-[550px] h-auto   flex flex-col justify-end space-y-6">
           {details.map((items, index) => (
             <div
               key={index}
@@ -72,12 +72,12 @@ const Testimonial = () => {
                 <div className="w-[60px] h-[60px]">
                   <img src={items.personimg} alt="" />
                 </div>
-                <div className="text-xl font-semibold ml-2 justify-center flex flex-col">
+                <div className="text-xl font-semibold ml-2 justify-center uppercase flex flex-col">
                   <h1>{items.personName}</h1>
                   <p>{items.profession}</p>
                 </div>
               </div>
-              <p className="lg:ml-[60px] lg:w-8/12 w-11/12 mt-[6%] leading-relaxed text-xl font-semibold">
+              <p className="lg:ml-[60px] lg:w-8/12 w-11/12 mt-[6%] leading-relaxed lg:text-xl  text-base  font-semibold">
                 {items.testimonials}
               </p>
             </div>
